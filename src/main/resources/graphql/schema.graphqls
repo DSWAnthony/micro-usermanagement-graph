@@ -1,0 +1,42 @@
+type Query{
+    GetAllUsers : [User]
+    GetUser(userId : String) : User
+}
+
+type Mutation{
+    CreateUser(user : UserInput) : User
+    UpdateUser(userId : String, user : UserInput) : User
+    DeleteUser(userId : String) : Boolean
+}
+
+type User {
+    id :String,
+    username : String,
+    password : String,
+    first_name : String,
+    last_name : String,
+    email : String,
+    address : Address
+}
+
+type Address{
+    id : String,
+    city : String,
+    country : String,
+    address : String
+}
+
+input UserInput {
+    username : String,
+    password : String,
+    first_name : String,
+    last_name : String,
+    email : String,
+    address : AddressInput
+}
+
+input AddressInput {
+    city : String,
+    country : String,
+    address : String
+}
